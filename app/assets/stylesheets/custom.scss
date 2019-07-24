@@ -60,3 +60,10 @@ margin: 0 0 0 0;
     }
   }
 }
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}

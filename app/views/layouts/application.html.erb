@@ -49,7 +49,19 @@
 
 
   <body>
+    
+    <% flash.each do |key, value| %>
+  　　　　<div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+　　<% end %>
+    
     <%= yield %>
+    
+    <script>
+            $(function(){
+              $(".alert").fadeOut(5000);
+            });
+    </script>
+    
   </body>
   
   <footer>
