@@ -15,7 +15,7 @@
       </div>
       <nav>
            <ul class="header-menus">
-    
+    　　　　<% if logged_in? %>
               <li><%= link_to 'crowdfundingとは', homes_description_path %></li>
     
                         <li>
@@ -39,10 +39,16 @@
 
               <li><%= link_to 'プロジェクトにエントリー', '#' %></li>
               <li><%= link_to '買い物かご', '#' %></li>
+              
+              <li><%= link_to 'ログアウト', logout_path %></li>
+              <li><%= link_to '商品登録', '#' %></li>
+              
+        <% else %>
               <li><%= link_to '新規登録', new_user_path %></li>
               <li><%= link_to 'ログイン', login_path %></li>
-              <li><%= link_to 'ログアウト','#' %></li>
-              <li><%= link_to '商品登録', '#' %></li>
+              
+        <% end %>  
+        
            </ul>
        </nav> 
  </header>
