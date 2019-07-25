@@ -2,6 +2,29 @@
   <div class="main-container">
     <div class="productlist">
       <h1>＜プロジェクト一覧＞</h1>
+      <% @items.each do |item| %>
+      
+          <ul class="productlist-contents">
+            <li>
+                <div><%= image_tag item.image.url %></div>
+                <h2><%= item.product_name %></h2>
+                <p class="price"><%= item.product_price %><small>円</small></p>
+                <p class="info"><%= item.info %></p>
+                <a class="btn" href="#">プロジェクト詳細</a>
+            </li>
+          </ul>
+          
+      <% end %>
+    </div>
+    </div>
+</main>
+
+
+
+<main>
+  <div class="main-container">
+    <div class="productlist">
+      <h1>＜プロジェクト一覧＞</h1>
       <ul class="productlist-contents">
         <li>
             <div><img src="images/pic-2.jpg" alt= "商品の写真"></div>
