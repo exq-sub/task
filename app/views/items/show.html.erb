@@ -1,9 +1,13 @@
-<p><%= @item.product_name %></p>
-<p><%= @item.product_price %></p>
-<p><%= @item.info %></p>
-<p><%= @item.description %></p>
+<div class="product-show">
+  
+    <p>＊＜プロジェクト名＞　　<%= @item.product_name %></p>
+    <p>＊＜支援額＞　　<%= @item.product_price %>円</p>
+    <p><%= @item.info %></p>
+    <p>＊＜詳細＞　　<%= @item.description %></p>
+    
+    <h4>＊＜追加の支援額を入力してください＞</h4>
+    <p><input type="number" name="quantity1"></p>　<!-- モデル作成 -->
+    <a href="#" class="btn-circle-3d-dent">注文する</a>　<!-- link_to -->
+    <p>＜＊注文ボタンを押してもまだ確定ではありません。＞</p>
 
-<p>＊＜追加の支援額を入力してください＞</p>
-<p><input type="number" name="quantity1"></p>　<!-- モデル作成 -->
-<a href="#" class="btn-circle-3d-dent">注文する</a>　<!-- link_to -->
-<p>＜＊注文ボタンを押してもまだ確定ではありません。＞</p>
+</div>
