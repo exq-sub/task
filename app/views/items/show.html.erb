@@ -6,8 +6,17 @@
     <p>＊＜詳細＞　　<%= @item.description %></p>
     
     <h4>＊＜追加の支援額を入力してください＞</h4>
-    <p><input type="number" name="quantity1"></p>　<!-- モデル作成 -->
-    <a href="#" class="btn-circle-3d-dent">注文する</a>　<!-- link_to -->
-    <p>＜＊注文ボタンを押してもまだ確定ではありません。＞</p>
-
+    
+    <%= form_for @order do |f| %>
+        
+          <div class="form-number">
+            <%= f.label :add_money, class: 'text-white' %>　　
+            <%= f.number_field :add_money, class: 'form-control' %><P>円</P>
+          </div>
+          
+          <%= f.submit "注文する", class: 'btn-circle-3d-dent' %>
+          
+    <% end %>
+    
+     
 </div>

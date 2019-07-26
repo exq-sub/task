@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find_by(id: params[:id])
+    @order = Order.new
   end
   
   def create
