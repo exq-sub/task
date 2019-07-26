@@ -10,7 +10,7 @@
                 <h2><%= item.product_name %></h2>
                 <p class="price"><%= item.product_price %><small>円</small></p>
                 <p class="info"><%= item.info %></p>
-                <a class="btn" href="#">プロジェクト詳細</a>
+                <%= link_to '>プロジェクト詳細', "/items/#{item.id}" %>
             </li>
           </ul>
           

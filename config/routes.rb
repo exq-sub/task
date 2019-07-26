@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'homes/description'
   
+  get '/items/:id' => 'items#show'
   resources :users
   resources :items
   
