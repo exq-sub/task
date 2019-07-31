@@ -14,9 +14,11 @@
             <%= f.number_field :add_money, class: 'form-control' %><P>円</P>
           </div>
           
+          <%= f.hidden_field :item_id, :value => @item.id %>
+          
           <%= f.submit "注文する", class: 'btn-circle-3d-dent' %>
           
     <% end %>
     
-     
+    <h2>＊＜注文ボタンを押すと内容の確認へ進みます🎶）＞</h2> 
 </div>
