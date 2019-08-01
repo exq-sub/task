@@ -5,4 +5,7 @@ class HomesController < ApplicationController
   
   def description
   end
+  
+  def entry
+  end
 end

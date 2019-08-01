@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   root 'homes#top'
   get 'homes/description'
+  get 'homes/entry'
   
   #get '/items/:id' => 'items#show'
   resources :users

@@ -1,6 +1,10 @@
 class OrdersController < ApplicationController
   
   def new
+    @orders = Order.where(user_id: current_user.id)
+    
+    @sum = Order.where(user_id: current_user.id).sum(:price_sum)
+     
   end
   
   def create

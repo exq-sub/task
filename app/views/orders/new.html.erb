@@ -1,2 +1,27 @@
-<h1>Orders#new</h1>
-<p>Find me in app/views/orders/new.html.erb</p>
+<h3>＜注文一覧＞</h3>
+<div class="confirmation-screen">
+    <% @orders.each do |order| %>
+    
+    
+         <% @item = Item.find_by(id: order.item_id) %>
+       
+       
+            <p>プロジェクト名>>　<%= @item.product_name %>　</p>
+            <p>支援額>>　<%= @item.product_price %>　円</p>
+        
+        
+    <p>追加支援額>>　<%= order.add_money %>　円</p>
+    <p>小計>>　<%= order.price_sum %>　円</p><br>
+    
+    
+    
+    <% end %>
+    
+     
+    <h2>合計金額　<%= @sum.to_i %>  円</h2>
+    <a class="button01" href="#">注文を確定する</a>
+</div>
+
+
+
+　
