@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
-  get 'rails/mailers/entry_inquiry_mailer'
+  resources :entries
+  #get 'entries/new'
+  get 'entries/create'
+  #get 'rails/mailers/entry_inquiry_mailer'
   #get 'orders/new'
   get 'sessions/new'
   root 'homes#top'
