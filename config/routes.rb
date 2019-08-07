@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  
+  get 'rails/mailers/entry_inquiry_mailer'
   #get 'orders/new'
   get 'sessions/new'
   root 'homes#top'
