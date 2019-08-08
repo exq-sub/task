@@ -22,6 +22,13 @@ class OrdersController < ApplicationController
   end
   
   
+  def destroy
+    @order = Order.find_by(id: params[:order.id])
+    @order.destroy
+    redirect_to new_order_path, success: '削除しました'
+  end
+  
+  
   private
   def order_params
     params.require(:order).permit(:item_id, :add_money)
