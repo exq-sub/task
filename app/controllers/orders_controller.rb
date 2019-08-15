@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   end
   
   def create
+    pp params
     @order = Order.new(order_params)
     @item = Item.find_by(id: @order.item_id)
     @order.price_sum = @order.add_money.to_i + @item.product_price.to_i
@@ -23,11 +24,13 @@ class OrdersController < ApplicationController
   
   
   def destroy
-    @order = Order.find_by(id: params[:order.id])
+    @order = Order.find(params[:id])
     @order.destroy
-    redirect_to new_order_path, success: '削除しました'
+    respond_to do |format|
+      format.html { redirect_to new_order_path, notice: '削除に成功しました。' }
+      format.json { head :no_content }
+    end
   end
-  
   
   private
   def order_params
