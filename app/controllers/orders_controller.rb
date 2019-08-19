@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
     @orders = Order.where(user_id: current_user.id)
     
     @sum = Order.where(user_id: current_user.id).sum(:price_sum)
+    
+    @pay = Pay.new
      
   end
   

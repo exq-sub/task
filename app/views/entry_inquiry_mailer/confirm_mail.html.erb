@@ -1,0 +1,36 @@
+<h>支援プロジェクト内容</h>
+
+<% @order.each do |order|%>
+
+    <% @item = Item.find_by(id: order.item_id) %>
+      <p>プロジェクト名</p>
+      <p><%= @item.product_name %></p>
+      <p>支援額</p>
+      <p><%= @item.product_price %></p>
+      
+<% end %>
+
+      <p>合計金額</p>
+      <p><%= @sum.to_i %></p>
+
+      <%if @pay.pay_type == '銀行振込' %>
+      
+                <p>銀行振込</p>
+                <p>支払い期日</p>
+                <p>2019/10/1</p>
+                <div>
+                        <ul>
+                            <li>金融機関名　りんご銀行</li>
+                            <li>支店　東京支店</li>
+                            <li>口座種別　普通</li>
+                            <li>名義　　techboost</li>
+                            <li>口座番号　445566778899</li>
+                        </ul>
+                    </div>
+       <% else %>   
+       
+                <p>クレジットカード払い</p>
+                <p>ありがとうございます、クレジットカードでの支払い手続きを行います。</p><br>
+                <p>ご注文ありがとうございました。</p>
+                
+       <% end %>      

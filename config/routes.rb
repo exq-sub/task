@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  #get 'pays/new'
   resources :entries
   #get 'entries/new'
   get 'entries/create'
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   resources :users
   resources :items
   resources :orders
+  resources :pays
   
   get 'logout' => 'sessions#destroy'
   get    '/login',   to: 'sessions#new'

@@ -9,8 +9,15 @@
                 <div><%= image_tag item.image.url %></div>
                 <h2><%= item.product_name %></h2>
                 <p class="price"><%= item.product_price %><small>円</small></p>
+                <p class="target">目標支援額>> <%= item.target_amount %><small>円</small></p>
                 <p class="info"><%= item.info %></p>
                 <%= link_to '>プロジェクト詳細', "/items/#{item.id}" %>
+                
+                <h4 class="mb-2">目標達成率</h4>
+                  <div class="progress mb-3" style ="height: 20px;">
+                  <div class="progress-bar progress-bar-success" role="progressbar" style="width: #{item.price_sum/item.target_amount*100.floor(5).to_f}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+               
+          
             </li>
           </ul>
           

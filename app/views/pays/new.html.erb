@@ -1,0 +1,11 @@
+<h1>ありがとうございます、注文が確定しました。</h1>
+<h2>購入履歴</h2>
+<p>アイテム一覧</p>
+
+  <% @history.each do |history|%>
+  
+      <% @item = Item.find_by(id: history.item_id) %>
+      <%= @item.product_name%>
+      <%= @history.created_at %>
+      
+  <% end %>
