@@ -1,2 +1,3 @@
 class Pay < ApplicationRecord
+ 
 end

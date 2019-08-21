@@ -1,32 +1,32 @@
 class PaysController < ApplicationController
   
   def new
-    @history = History.all.order(created_at: :desc)
+    @historys = History.all.order(created_at: :desc)
   end
   
   def create
-    @order = Order.all
+    @orders = Order.where(user_id: current_user.id)
+        #@item定義
+    @orders.each do |order|
+      @history = History.create(user_id: order.user_id, item_id: order.item_id) 
+      @item = Item.find_by(id: order.item_id)
+      @item.price_sum = @item.price_sum.to_i + order.price_sum.to_i
+      @item.save
+    end
     
-        @oder.each do |order|
-          #@item = Item.find_by(id: order.item_id)
-          #@item.price_sum = order.add_money.to_i + @item.product_price.to_i
-          #@item.save
-        　@history = History.new(user_id: order.user_id, item_id: oder.item_id)
-        　@history.save
-        end
-    
-    @sum = Order.where(user_id: current_user.id).sum(:price_sum)
-    @pay = Pay.new(pay_params)
+       @pay = Pay.new(pay_params)
     if @pay.save
-      EntryInquiryMailer.confirm_mail(@oder, @sum, @pay).deliver
+      @orders = Order.where(user_id: current_user.id)
+      @sum = Order.where(user_id: current_user.id).sum(:price_sum)
+      @user = User.find_by(id: current_user.id)
+      ConfirmMailer.confirm_mail(@orders, @pay, @sum).deliver
       
-      @oder = Oder.all
-      @oder.destroy
+      Order.where(user_id: current_user.id).destroy_all
       
       redirect_to new_pay_path
     else
        flash.now[:danger] = "入力漏れがあります。"
-      render :new_order_path
+       
     end  
   end
   

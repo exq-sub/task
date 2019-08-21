@@ -1,6 +1,6 @@
 <h>支援プロジェクト内容</h>
 
-<% @order.each do |order|%>
+<% @orders.each do |order|%>
 
     <% @item = Item.find_by(id: order.item_id) %>
       <p>プロジェクト名</p>

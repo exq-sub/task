@@ -1,11 +1,10 @@
 class ConfirmMailer < ApplicationMailer
   
   
-  def confirm_mail(order, pay, sum)
-    @order = order
+  def confirm_mail(orders, pay, sum)
+    @orders = orders
     @pay = pay
     @sum = sum
-    @user = User.find_by(user_id: current_user.id)
     mail(
       from: 'a.t.subchord@gmail.com',
       to: '@user.address',

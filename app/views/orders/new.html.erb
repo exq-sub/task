@@ -20,10 +20,11 @@
     
    <%= form_for @pay do |f| %>
    
-       <label><%= f.radio_button :pay_type, "クレジットカード払い" %> クレジットカード払い </label>
-       <label><%= f.radio_button :pay_type, "銀行振込" %> 銀行振込 </label>
+       <label><%= f.radio_button :pay_type, 1 %> クレジットカード払い </label>
+       <label><%= f.radio_button :pay_type, 2 %> 銀行振込 </label>
        
-        <div>
+    
+    <div>
         <ul>
             <li>金融機関名　りんご銀行</li>
             <li>支店　東京支店</li>
@@ -35,17 +36,14 @@
     
      
     <h2>合計金額　<%= @sum.to_i %>  円</h2>
-       
-       <%= f.submit '注文を確定する', class: 'button01'%>
-   
-   <% end %>
     
+    <%= f.submit "注文を確定する", class: 'button01' %>
     
-    
-    
-   
+    <% end %>
     
 </div>
+
+ 
 
 
 

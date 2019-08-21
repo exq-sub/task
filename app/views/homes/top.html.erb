@@ -15,7 +15,7 @@
                 
                 <h4 class="mb-2">目標達成率</h4>
                   <div class="progress mb-3" style ="height: 20px;">
-                  <div class="progress-bar progress-bar-success" role="progressbar" style="width: #{item.price_sum/item.target_amount*100.floor(5).to_f}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar progress-bar" role="progressbar" style="width: <%= item.price_sum.to_f/item.target_amount.to_f*100.floor(5).to_f %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                
           
             </li>
