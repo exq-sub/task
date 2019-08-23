@@ -1,7 +1,8 @@
 class PaysController < ApplicationController
   
   def new
-    @historys = History.all.order(created_at: :desc)
+    
+    @historys = History.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
   end
   
   def create
@@ -26,7 +27,7 @@ class PaysController < ApplicationController
       redirect_to new_pay_path
     else
        flash.now[:danger] = "入力漏れがあります。"
-       
+       #render :new_order_path
     end  
   end
   

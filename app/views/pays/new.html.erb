@@ -2,10 +2,13 @@
 <h2>購入履歴</h2>
 <p>アイテム一覧</p>
 
+<% will_paginate @historys %>
   <% @historys.each do |history|%>
   
-      <% @item = Item.find_by(id: history.item_id) %>
-      <%= @item.product_name%>
-      <%= history.created_at %>
+      <p><% @item = Item.find_by(id: history.item_id) %></p>
+      <p>プロジェクト名＞<%= @item.product_name %></p>
+      <p>支援額＞<%= @item.product_price %>円</p>
+      <p>日付<%= history.created_at %></p><br><br>
       
   <% end %>
+<%= will_paginate @historys %>
