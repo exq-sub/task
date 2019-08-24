@@ -19,8 +19,9 @@
               <li><%= link_to 'crowdfundingとは', homes_description_path %></li>
     
                         <li>
-                            <form method="POST" action="/search">
-                            <input type="text" name="search_word">
+                          <form action="/" method="GET"> 
+                          <input type="text" name="q">
+                          
                             <button type="submit" value="検索する">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" version="1.1" width="18px" height="18px" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="surface1">

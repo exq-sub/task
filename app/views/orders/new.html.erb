@@ -20,7 +20,7 @@
     
    <%= form_for @pay do |f| %>
    
-       <label><%= f.radio_button :pay_type, 1 %> クレジットカード払い </label>
+       <label><%= f.radio_button :pay_type, 1, :checked => true %> クレジットカード払い </label>
        <label><%= f.radio_button :pay_type, 2 %> 銀行振込 </label>
        
     
