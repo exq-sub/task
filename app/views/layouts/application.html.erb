@@ -7,21 +7,21 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+　　
+
   </head>
   
   <header>
       <div class="header-logo">
-        <div><%= link_to 'Movie create',root_path %></div>
+        <%= link_to image_tag('cooltext333827079820179.png'),root_path %>
       </div>
-      <nav>
            <ul class="header-menus">
     　　　　<% if logged_in? %>
               <li><%= link_to 'crowdfundingとは', homes_description_path %></li>
     
-                        <li>
+               <li>
                           <form action="/" method="GET"> 
                           <input type="text" name="q">
-                          
                             <button type="submit" value="検索する">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" version="1.1" width="18px" height="18px" xmlns:xlink="http://www.w3.org/1999/xlink">
                             <g id="surface1">
@@ -29,13 +29,7 @@
                             </g>
                             </svg> 
                             </form>
-                            
-                            
-                            
-                           
-                            
-                
-                        </li>
+              </li>
               <li><p2>ログインユーザー</p2><%= link_to current_user.id, '#' %><p2>さん</p2></li>
               <li><%= link_to 'プロジェクトにエントリー', new_entry_path %></li>
               <li><%= link_to '買い物かご', new_order_path %></li>
@@ -44,6 +38,19 @@
               <li><%= link_to '商品登録', new_item_path %></li>
               
         <% else %>
+        
+              <li>
+                          <form action="/" method="GET"> 
+                          <input type="text" name="q">
+                            <button type="submit" value="検索する">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" version="1.1" width="18px" height="18px" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="surface1">
+                            <path style=" " d="M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z "></path>
+                            </g>
+                            </svg> 
+                            </form>
+              </li>
+              
               <li><%= link_to '新規登録', new_user_path %></li>
               <li><%= link_to 'ログイン', login_path %></li>
               
@@ -52,28 +59,36 @@
            </ul>
        </nav> 
  </header>
-
-
-  <body>
-    
+ 
+   <div class = "flash">
     <% flash.each do |key, value| %>
   　　　　<div class="alert alert-<%= key %>" role="alert"><%= value %></div>
 　　<% end %>
+　　</div>
+　　
+  <body>
     
     <%= yield %>
     
-    <script>
-            $(function(){
-              $(".alert").fadeOut(5000);
-            });
-    </script>
-    
+      <script>
+              $(function(){
+                $(".alert").fadeOut(5000);
+              });
+      </script>
+      
   </body>
   
   <footer>
+    <div class = "link_bar">
+      <ul>
+        <li>Facebool</li>
+        <li>Twitter</li>
+        <li>Instagram</li>
+      </ul>
+    </div>
       <nav class = "footer">
         <ul>
-            <li></li><%= link_to 'トップページ',root_path %></li> 
+            <li><%= link_to 'トップページ',root_path %></li> 
             <li>Crowd funding Copyright 2019</li>
         </ul>
       </nav>

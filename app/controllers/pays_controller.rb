@@ -16,17 +16,28 @@ class PaysController < ApplicationController
     end
     
        @pay = Pay.new(pay_params)
-    if @pay.save
+       @sum = Order.where(user_id: current_user.id).sum(:price_sum)
+    if @pay.save && 0 < @sum.to_i
       @orders = Order.where(user_id: current_user.id)
       @sum = Order.where(user_id: current_user.id).sum(:price_sum)
       @user = User.find_by(id: current_user.id)
       ConfirmMailer.confirm_mail(@orders, @pay, @sum).deliver
+      
+      
+      #pay_typeで分岐させクレジットの場合は別画面に遷移下のコードを実行する予定
+      #Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+      #Payjp::Charge.create(
+      #:amount => params[:amount],
+      #:card => params['payjp-token'],
+      #:currency => 'jpy'
+       #)
       
       Order.where(user_id: current_user.id).destroy_all
       
       redirect_to new_pay_path
     else
        flash.now[:danger] = "入力漏れがあります。"
+       
        #render :new_order_path
     end  
   end

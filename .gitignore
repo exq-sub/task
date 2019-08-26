@@ -25,3 +25,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+
+PAYJP_PUBLIC_KEY='テスト公開鍵'
+PAYJP_SECRET_KEY='テスト秘密鍵'
