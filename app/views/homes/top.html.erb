@@ -1,31 +1,39 @@
-<main>
+　<div class ="pict"><img src ="personal-2923048_1280.jpg"></div>
   <div class="main-container">
     <div class="productlist">
       <br><h1>＜プロジェクト一覧＞</h1>
-      
-      <% will_paginate @items %>
+      　
+        <% will_paginate @items %>
+        
+         
         <% @items.each do |item| %>
-            <ul class="productlist-contents">
-              <li>
-                  <div><%= image_tag item.image.url %></div>
-                  <h2><%= item.product_name %></h2>
-                  <p class="price"><%= item.product_price %><small>円</small></p>
-                  <p class="target">目標支援額>> <%= item.target_amount %><small>円</small></p>
-                  <p class="info"><%= item.info %></p>
-                  <%= link_to '>プロジェクト詳細', "/items/#{item.id}" %>
-                  
-                  <h4 class="mb-2">目標達成率</h4>
-                    <div class="progress mb-3" style ="height: 20px;">
-                    <div class="progress-bar progress-bar" role="progressbar" style="width: <%= item.price_sum.to_f/item.target_amount.to_f*100.floor(5).to_f %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                 
-              </li>
-            </ul>
-        <% end %>
-      <%= will_paginate @items %>
-      
+            <div class="productlist-Enumeration">
+              
+                <ul class="productlist-contents">
+                  <li>
+                      <div><%= image_tag item.image.url %></div>
+                      <h2><%= item.product_name %></h2>
+                      <p class="price"><%= item.product_price %><small>円</small></p>
+                      <p class="target">目標支援額>> <%= item.target_amount %><small>円</small></p>
+                      <p class="info"><%= item.info %></p>
+                      <%= link_to '>プロジェクト詳細', "/items/#{item.id}" %>
+                      
+                      <h4 class="mb-2">目標達成率</h4>
+                        <div class="progress mb-3" style ="height: 20px;">
+                        <div class="progress-bar progress-bar" role="progressbar" style="width: <%= item.price_sum.to_f/item.target_amount.to_f*100.floor(5).to_f %>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                     
+                  </li>
+                </ul>
+                
+            </div>
+          <% end %>
+         
+        <div>
+        <%= will_paginate @items %>
+        </div>
     </div>
     </div>
-</main>
+
 
 
 
